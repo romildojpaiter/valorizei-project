@@ -1,8 +1,23 @@
 version: "3"
 
 services:
+  rabbitmq:
+    container_name: rabbitmq-valorizei
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: user
+    networks:
+      - valoriza-network
+
   mongo-express:
+    container_name: mongo-express-valorizei
     image: mongo-express
+    depends_on:
+      - db-valorizei
     ports:
       - 8081:8081
     environment:
@@ -11,12 +26,14 @@ services:
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_SERVER: db-valorizei-mongodb
     links:
       - db-valorizei
     networks:
       - valoriza-network
 
   db-valorizei:
+    container_name: db-valorizei-mongodb
     image: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -29,7 +46,10 @@ services:
       - valoriza-network
 
   app-valorizei:
+    container_name: app-valorizei
     image: valoriza-api
+    depends_on:
+      - db-valorizei
     ports:
       - 9091:8080
     links:

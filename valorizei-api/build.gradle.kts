@@ -28,11 +28,16 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.slf4j:slf4j-api:1.7.30")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
+	testImplementation("org.mockito:mockito-core:2.21.0")
+	testImplementation("org.mockito:mockito-junit-jupiter:2.27.0")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
 }
 
 tasks.withType<Test> {
