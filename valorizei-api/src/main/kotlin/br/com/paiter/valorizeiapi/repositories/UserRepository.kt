@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.stereotype.Component
 
 @Component
-interface  UserRepository : MongoRepository<User, String> {
+interface UserRepository : MongoRepository<User, String> {
+
+    fun findByAge(age: Int): List<User>
 
 }

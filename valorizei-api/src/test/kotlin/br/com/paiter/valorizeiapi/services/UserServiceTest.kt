@@ -25,22 +25,22 @@ internal class UserServiceTest {
 
     }
 
-    companion object {
-
-        val logger = LoggerFactory.getLogger(this.javaClass)
-
-        @BeforeAll
-        @JvmStatic
-        internal fun `init`() {
-            logger.info("Passei no init Primeiro")
-            MockitoAnnotations.initMocks(this);
-        }
-
-        @AfterAll
-        @JvmStatic
-        internal fun `after`() {
-            logger.info("Passei no after depois")
-        }
-
-    }
+//    companion object {
+//
+//        val logger = LoggerFactory.getLogger(this.javaClass)
+//
+//        @BeforeAll
+//        @JvmStatic
+//        internal fun `init`() {
+//            logger.info("Passei no init Primeiro")
+//            MockitoAnnotations.initMocks(this);
+//        }
+//
+//        @AfterAll
+//        @JvmStatic
+//        internal fun `after`() {
+//            logger.info("Passei no after depois")
+//        }
+//
+//    }
 }

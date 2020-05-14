@@ -23,6 +23,7 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -34,8 +35,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
 	testImplementation("org.mockito:mockito-core:2.21.0")
+	testImplementation("org.springframework.amqp:spring-rabbit-test")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
 	testImplementation("org.mockito:mockito-junit-jupiter:2.27.0")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
 }

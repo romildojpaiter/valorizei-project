@@ -50,10 +50,12 @@ services:
     image: valoriza-api
     depends_on:
       - db-valorizei
+      - rabbitmq
     ports:
       - 9091:8080
     links:
       - db-valorizei
+      - rabbitmq
     networks:
       - valoriza-network
 

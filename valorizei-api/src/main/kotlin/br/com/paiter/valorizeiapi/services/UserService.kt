@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 @Transactional
-class UserService(var repository : UserRepository) {
+class UserService(val repository : UserRepository) {
 
     fun save(user : User) = repository.save(user)
 
