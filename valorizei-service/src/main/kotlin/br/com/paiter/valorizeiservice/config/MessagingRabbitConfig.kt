@@ -1,6 +1,6 @@
-package br.com.paiter.valorizeiapi.config
+package br.com.paiter.valorizeiservice.config
 
-import br.com.paiter.valorizeiapi.messaging.Receiver
+import br.com.paiter.valorizeiservice.message.Receiver
 import org.springframework.amqp.core.Binding
 import org.springframework.amqp.core.BindingBuilder
 import org.springframework.amqp.core.Queue
@@ -11,18 +11,17 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-
 @Configuration
 class MessagingRabbitConfig {
 
     @Bean
     fun queue(): Queue? {
-        return Queue(Companion.queueName, false)
+        return Queue(queueName, false)
     }
 
     @Bean
     fun exchange(): TopicExchange? {
-        return TopicExchange(Companion.topicExchangeName)
+        return TopicExchange(topicExchangeName)
     }
 
     @Bean

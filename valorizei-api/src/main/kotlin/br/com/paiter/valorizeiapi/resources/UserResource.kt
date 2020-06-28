@@ -1,4 +1,4 @@
-package br.com.paiter.valorizeiapi.resource
+package br.com.paiter.valorizeiapi.resources
 
 import br.com.paiter.valorizeiapi.models.User
 import br.com.paiter.valorizeiapi.services.UserService

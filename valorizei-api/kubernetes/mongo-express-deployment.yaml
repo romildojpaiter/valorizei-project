@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mongo-express
+  name: mongo-express
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mongo-express
+    spec:
+      containers:
+      - env:
+        - name: ME_CONFIG_BASICAUTH_PASSWORD
+          value: rpaiter
+        - name: ME_CONFIG_BASICAUTH_USERNAME
+          value: rpaiter
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          value: root
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          value: root
+        - name: ME_CONFIG_MONGODB_PORT
+          value: "27017"
+        - name: ME_CONFIG_MONGODB_SERVER
+          value: db-valorizei-mongodb
+        image: mongo-express
+        name: mongo-express-valorizei
+        ports:
+        - containerPort: 8081
+        resources: {}
+      restartPolicy: Always
+status: {}

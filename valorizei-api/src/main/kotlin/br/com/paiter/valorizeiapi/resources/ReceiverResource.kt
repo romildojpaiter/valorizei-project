@@ -1,4 +1,4 @@
-package br.com.paiter.valorizeiapi.resource
+package br.com.paiter.valorizeiapi.resources
 
 import br.com.paiter.valorizeiapi.services.ReceiverService
 import org.springframework.web.bind.annotation.GetMapping

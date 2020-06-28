@@ -1,10 +1,9 @@
-package br.com.paiter.valorizeiapi.resource
+package br.com.paiter.valorizeiapi.resources
 
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-internal class UserResourceTest{
+class UserResourceTest{
 
     @Test
     fun listUserEndpoint() {

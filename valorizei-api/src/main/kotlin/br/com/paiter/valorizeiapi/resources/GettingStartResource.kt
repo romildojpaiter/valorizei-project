@@ -1,4 +1,4 @@
-package br.com.paiter.valorizeiapi.resource
+package br.com.paiter.valorizeiapi.resources
 
 import org.springframework.web.bind.annotation.*
 
