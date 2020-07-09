@@ -22,3 +22,8 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Outras configurações para incluir o typescript
+
+yarn add @vue/eslint-config-typescript

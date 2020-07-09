@@ -1,9 +1,9 @@
 <template>
 
-    <v-container>		
+    <div>		
 		<valorizei />
 		<incricao-form />
-    </v-container>
+    </div>
 
 </template>
 

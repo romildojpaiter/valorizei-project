@@ -1,23 +1,16 @@
+<!-- ./src/App.vue -->
 <template>
-
-	<div id="app">
-		<v-app>
-			
-			<Header />
-
-			<v-content>
-				<router-view/>
-			</v-content>
-
-			<HomeFooter />
-			
-		</v-app>
-	</div>
-	
+	<v-app>
+		<Header />
+		<v-content>
+			<router-view/>
+		</v-content>
+		<HomeFooter />
+	</v-app>
 </template>
 
 <script>
-
+	// imports of components
 	import Header from '@/layout/Header';
 	import HomeFooter from '@/layout/Footer';
 
