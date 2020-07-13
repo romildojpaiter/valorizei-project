@@ -3,37 +3,26 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import router from './router'
 
-Vue.config.productionTip = false
+// Incluindo vee-validate
+import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
+// import en from 'vee-validate/dist/locale/en.json';
+import pt_BR from 'vee-validate/dist/locale/pt_BR.json';
+import * as rules from 'vee-validate/dist/rules';
 
-
-import { ValidationProvider, extend } from 'vee-validate';
-
-// Add a rule.
-extend('secret', {
-  validate: value => value === 'example',
-  message: 'This is not the magic word'
+// install rules and localization
+Object.keys(rules).forEach(rule => {
+  extend(rule, rules[rule]);
 });
 
+// Definindo a linguagem principal como pt_BR
+localize('pt_BR', pt_BR);
+
 // Register it globally
+Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
 
-// const config = {
-//     aria: true,
-//     classNames: {},
-//     classes: false,
-//     delay: 0,
-//     dictionary: null,
-//     errorBagName: 'errors', // change if property conflicts
-//     events: 'input|blur',
-//     fieldsBagName: 'fields',
-//     i18n: null, // the vue-i18n plugin instance
-//     i18nRootKey: 'validations', // the nested key under which the validation messages will be located
-//     inject: true,
-//     locale: 'en',
-//     validity: false,
-//     useConstraintAttrs: true
-// };
 
+Vue.config.productionTip = false
 
 new Vue({
   vuetify,

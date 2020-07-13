@@ -8,10 +8,10 @@
 	>
 		<div class="py-12"></div>
 
-		<v-form @submit.prevent="handleSubmit">
+		<v-form ref="form" v-model="valid" :lazy-validation="lazy">
 			<v-container>
 
-				<h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">Contact Me</h2>
+				<h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">SABER MAIS</h2>
 
 				<v-responsive
 					class="mx-auto mb-12"
@@ -20,47 +20,52 @@
 					<v-divider></v-divider>
 				</v-responsive>
 
+				<v-banner v-if="postado">Obrigado por seu interesse, logo entraremos em contato com mais informações</v-banner>
 
 				<v-theme-provider light>
 					<v-row>
 
 						<v-col cols="12">
-							<ValidationProvider name="name" rules="secret" v-slot="{ errors }">
-								<v-text-field
-									flat
-									label="Name*"
-									solo
-									v-model="form.name"
-								/>
-								<p>You type: {{ form.name }}</p>
-								<span>{{errors[0]}}</span>
-								<!-- <span class="small text-danger" v-show="errors.has('name')">Name is required</span> -->
-							</ValidationProvider>
+							<v-text-field
+								flat
+								label="Nome*"
+								solo
+								v-model="form.name"
+								:counter="10"
+								:rules="nameRules"
+								required
+							/>
 						</v-col>
 
 						<v-col cols="12">
-						<v-text-field
-							flat
-							label="Email*"
-							solo
-						/>
+							<v-text-field
+								flat
+								label="E-mail*"
+								solo
+								v-model="form.email"
+							/>
+							<span>{{ errors[0] }}</span>
 						</v-col>
 
 						<v-col cols="12">
-						<v-text-field
-							flat
-							label="Subject*"
-							solo
-						></v-text-field>
+							<v-select
+								flat
+								solo
+								v-model="form.classe"
+								:items="classes"
+								:rules="[v => !!v || 'Informe a Classe']"
+								label="Classe*"
+								required
+							></v-select>
 						</v-col>
 
 						<v-col cols="12">
 							<v-textarea
 								flat
-								label="Message*"
+								label="Deixe sua opnião"
 								solo
+								v-model="form.observacao"
 							>
-
 							</v-textarea>
 						</v-col>
 
@@ -69,12 +74,14 @@
 							cols="auto"
 						>
 							<v-btn
+								:disabled="!valid"
 								color="accent"
 								x-large
-								v-on:click="enrolAssinante">
-								Tenho Interesse
+								@click="enrolAssinante">
+							Tenho Interesse
 							</v-btn>
 						</v-col>
+
 					</v-row>
 				</v-theme-provider>
 
@@ -87,23 +94,38 @@
 </template>
 
 <script>
-	// Imports
-	import { ValidationProvider } from 'vee-validate';
-
 	export default {
 		name: 'IncricaoForm',
+		props:[],
 		data: () => ({
 			value: '',
+			tituloMensagem: 'Aqui vai um texto personalizado.',
 			errors: [],
+			valid: true,
+			lazy: false,
+			postado: false,
 			form: {
 				name: '',
 				email: '',
-				message: '',
+				tipoClasse: '',
+				observacao: ''
 			},
+			classes: [
+				'Atleta',
+				'Organização',
+				'Colaborador'
+			],
+			// Rules to fields of form
+			nameRules: [
+				v => !!v || 'O campo nome é obrigátorio',
+				v => (v && v.length <= 10) || 'O campo nome deve ter menos de 10 caracteres',
+			],
+			emailRules: [
+				v => !!v || 'E-mail is required',
+				v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+			],
+
 		}),
-		components: {
-			ValidationProvider
-		},
 		methods: {
 			enrolAssinante() {
 				console.log(this.errors);
@@ -117,6 +139,7 @@
 			handleSubmit() {
 				// TODO: How to send this to Netlify?
 				alert("handleSubmit clicked");
+				this.postado = true;
 				this.resetForm();
 			},			
 		}
