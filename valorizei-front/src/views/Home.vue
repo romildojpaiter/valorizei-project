@@ -21,8 +21,8 @@
 		},
 		components: {
 			Valorizei,
-			IncricaoForm:  () => import('@/layout/sections/InscricaoForm'),
-			// IncricaoForm:  () => import('@/layout/sections/InscricaoFormValidation'),
+			// IncricaoForm:  () => import('@/layout/sections/InscricaoForm'),
+			IncricaoForm:  () => import('@/layout/sections/InscricaoFormValidation'),
 		}
 	}
 </script>

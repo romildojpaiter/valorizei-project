@@ -43,6 +43,8 @@
 								label="E-mail*"
 								solo
 								v-model="form.email"
+								:rules="emailRules"
+								required
 							/>
 							<span>{{ errors[0] }}</span>
 						</v-col>
@@ -115,8 +117,7 @@
 				'Organização',
 				'Colaborador'
 			],
-			// Rules to fields of form
-			nameRules: [
+			nameRules: [ 			// Rules to fields of form
 				v => !!v || 'O campo nome é obrigátorio',
 				v => (v && v.length <= 10) || 'O campo nome deve ter menos de 10 caracteres',
 			],

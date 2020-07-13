@@ -28,7 +28,7 @@
 
 							<v-col cols="12">
 
-								<ValidationProvider name="name" rules="required" v-slot="{ errors }">
+								<ValidationProvider name="nome" rules="required" v-slot="{ errors }">
 									<v-text-field
 										flat
 										label="Nome*"
@@ -36,7 +36,6 @@
 										v-model="form.name"
 									/>
 									<span>{{errors[0]}}</span>
-									<!-- <span class="small text-danger" v-show="errors.has('name')">Name is required</span> -->
 								</ValidationProvider>
 
 							</v-col>
@@ -48,8 +47,6 @@
 										label="E-mail*"
 										solo
 										v-model="form.email"
-										:rules="emailRules"
-										required
 									/>
 									<span>{{ errors[0] }}</span>
 								</ValidationProvider>
@@ -110,11 +107,6 @@
 		name: 'IncricaoFormValidation',
 		props:[],
 		data: () => ({
-			value: '',
-			tituloMensagem: 'Aqui vai um texto personalizado.',
-			errors: [],
-			valid: true,
-			lazy: false,
 			postado: false,
 			form: {
 				name: '',
@@ -129,19 +121,16 @@
 			],			
 		}),
 		methods: {
-			enrolAssinante() {
-				console.log(this.errors);
-				alert("Fui clicado eeee");
-			},
 			resetForm() {
 				this.$set(this.form, 'name', '');
 				this.$set(this.form, 'email', '');
-				this.$set(this.form, 'message', '');
+				this.$set(this.form, 'classe', '');
+				this.$set(this.form, 'observacao', '');
 			},
 			handleSubmit() {
 				// TODO: How to send this to Netlify?
-				alert("handleSubmit clicked");
 				this.postado = true;
+				alert(JSON.stringify(this.form));
 				this.resetForm();
 			},			
 		}
