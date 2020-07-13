@@ -1,4 +1,4 @@
-# my-app
+# Valorizei App
 
 ## Project setup
 ```
