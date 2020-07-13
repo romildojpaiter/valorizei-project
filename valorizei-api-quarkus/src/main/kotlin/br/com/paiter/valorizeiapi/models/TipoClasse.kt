@@ -1,4 +1,4 @@
-package br.com.paiter.models
+package br.com.paiter.valorizeiapi.models
 
 enum class TipoClasse {
     ATLETA,

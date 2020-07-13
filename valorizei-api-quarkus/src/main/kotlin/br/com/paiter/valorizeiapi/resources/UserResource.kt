@@ -1,6 +1,6 @@
-package br.com.paiter.resources
+package br.com.paiter.valorizeiapi.resources
 
-import br.com.paiter.models.User
+import br.com.paiter.valorizeiapi.models.User
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
