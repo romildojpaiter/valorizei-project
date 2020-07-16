@@ -13,6 +13,20 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw compile quarkus:dev
 ```
 
+## Start mongodb on Docker
+
+To start instance one docker of mongodb use this
+```
+cd valorizeidb && docker-compose up -d
+
+docker volume create --driver local \
+
+   --opt device:/mongodb/valorizei \
+   valorizeidb
+
+docker run 
+```
+
 ## Packaging and running the application
 
 The application can be packaged using `./mvnw package`.

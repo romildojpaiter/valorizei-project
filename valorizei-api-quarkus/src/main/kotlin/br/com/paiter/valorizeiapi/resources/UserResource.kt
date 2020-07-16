@@ -16,10 +16,7 @@ class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     fun add(user: User) : User {
-
         return user;
     }
-
-
 
 }
