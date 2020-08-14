@@ -1,8 +1,8 @@
 <template>
 
-    <div>		
+    <div>
 		<valorizei />
-		<incricao-form />
+		<inscricao-form />
     </div>
 
 </template>
@@ -13,7 +13,7 @@
 
 	export default {
 		name: 'Home',
-// 	    data: function() { return {} }, below we have shorthand		
+// 	    data: function() { return {} }, below we have shorthand
 		data() {
 			return {
 
@@ -21,8 +21,8 @@
 		},
 		components: {
 			Valorizei,
-			// IncricaoForm:  () => import('@/layout/sections/InscricaoForm'),
-			IncricaoForm:  () => import('@/layout/sections/InscricaoFormValidation'),
+			// InscricaoForm:  () => import('@/layout/sections/InscricaoForm'),
+			InscricaoForm:  () => import('@/layout/sections/InscricaoFormValidation'),
 		}
 	}
 </script>
