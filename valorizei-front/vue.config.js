@@ -1,3 +1,5 @@
+process.env.VUE_APP_VERSION = require('./package.json').version
+
 module.exports = {
   "transpileDependencies": [
     "vuetify"
@@ -9,5 +11,5 @@ module.exports = {
         args[0].title = 'Valorzei';
         return args;
       });
-  },  
+  },
 }
