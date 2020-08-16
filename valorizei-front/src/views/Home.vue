@@ -18,7 +18,13 @@
 			return {
 
 			}
-		},
+        },
+        mounted() {
+            // console.log(process.env.NODE_ENV);
+            // console.log(process.env.VUE_APP_URL);
+            // console.log(process.env.VUE_APP_TITLE);
+            // console.log(process.env.VUE_APP_VERSION);
+        },
 		components: {
 			Valorizei,
 			// InscricaoForm:  () => import('@/layout/sections/InscricaoForm'),
