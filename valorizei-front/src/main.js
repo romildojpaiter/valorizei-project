@@ -24,8 +24,12 @@ Vue.component('ValidationProvider', ValidationProvider);
 
 Vue.config.productionTip = false
 
+// Utilizando Vuex
+import store from './store/index.js'
+
 new Vue({
   vuetify,
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

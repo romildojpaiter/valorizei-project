@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
 
 // Admin components
 import Admin from '@/views/admin/Admin.vue'
-import Atleta from '../views/admin/Atleta.vue'
-import Empresa from '../views/admin/Empresa.vue'
-import ListaAtletas from '../views/admin/ListaAtletas.vue'
-import ListaEmpresas from '../views/admin/ListaEmpresas.vue'
+import Atleta from '@/views/admin/Atleta.vue'
+import Empresa from '@/views/admin/Empresa.vue'
+import ListaAtletas from '@/views/admin/ListaAtletas.vue'
+import ListaEmpresas from '@/views/admin/ListaEmpresas.vue'
 
 
 Vue.use(VueRouter)
