@@ -20,7 +20,7 @@
 
 <script>
 // mutations-type
-import ADD_ATLETA_SUCCESS from '@/store/mutation-types'
+import { ADD_ATLETA_SUCCESS } from '@/store/mutation-types'
 
 //
 import toastr from 'toastr';
@@ -102,5 +102,138 @@ export default {
     position          : absolute;
     top               : 14px;
     left              : 14px;
+  }
+
+@-webkit-keyframes dotOneKeyframes {
+    0% {
+      top  : 0;
+      left : 0;
+    }
+    8.3333333333% {
+      top  : 14px;
+      left : 0;
+    }
+    16.6666666666% {
+    }
+    25% {
+      top  : 14px;
+      left : 0;
+    }
+    33.3333333333% {
+      top  : 14px;
+      left : 14px;
+    }
+    41.6666666666% {
+    }
+    50% {
+      top  : 14px;
+      left : 14px;
+    }
+    58.3333333333% {
+      top  : 0;
+      left : 14px;
+    }
+    66.6666666666% {
+    }
+    75% {
+      top  : 0;
+      left : 14px;
+    }
+    83.3333333333% {
+      top  : 0;
+      left : 0;
+    }
+    91.6666666666% {
+    }
+    100% {
+    }
+  }
+  @-webkit-keyframes dotTwoKeyframes {
+    0% {
+      top  : 0;
+      left : 14px;
+    }
+    8.3333333333% {
+      top  : 0;
+      left : 0;
+    }
+    16.6666666666% {
+    }
+    25% {
+      top  : 0;
+      left : 0;
+    }
+    33.3333333333% {
+      top  : 14px;
+      left : 0;
+    }
+    41.6666666666% {
+    }
+    50% {
+      top  : 14px;
+      left : 0;
+    }
+    58.3333333333% {
+      top  : 14px;
+      left : 14px;
+    }
+    66.6666666666% {
+    }
+    75% {
+      top  : 14px;
+      left : 14px;
+    }
+    83.3333333333% {
+      top  : 0;
+      left : 14px;
+    }
+    91.6666666666% {
+    }
+    100% {
+    }
+  }
+  @-webkit-keyframes dotThreeKeyframes {
+    0% {
+      top  : 14px;
+      left : 14px;
+    }
+    8.3333333333% {
+      top  : 0;
+      left : 14px;
+    }
+    16.6666666666% {
+    }
+    25% {
+      top  : 0;
+      left : 14px;
+    }
+    33.3333333333% {
+      top  : 0;
+      left : 0;
+    }
+    41.6666666666% {
+    }
+    50% {
+      top  : 0;
+      left : 0;
+    }
+    58.3333333333% {
+      top  : 14px;
+      left : 0;
+    }
+    66.6666666666% {
+    }
+    75% {
+      top  : 14px;
+      left : 0;
+    }
+    83.3333333333% {
+      top  : 14px;
+      left : 14px;
+    }
+    91.6666666666% {
+    }
+    100% {
+    }
   }
 </style>
