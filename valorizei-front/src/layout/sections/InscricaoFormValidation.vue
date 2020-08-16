@@ -9,7 +9,7 @@
 		<div class="py-12"></div>
 
 		<ValidationObserver v-slot="{ invalid }">
-			<v-form @submit.prevent="handleSubmit">
+			<v-form @submit.prevent="addAtleta">
 				<v-container>
 
 					<h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">SABER MAIS</h2>
@@ -80,7 +80,7 @@
 								cols="auto"
 							>
 								<v-btn
-									type="submit" 
+									type="submit"
 									:disabled="invalid"
 									color="accent"
 									x-large
@@ -97,43 +97,51 @@
 		</ValidationObserver>
 
 		<div class="py-12"></div>
-	</v-sheet>   
+	</v-sheet>
 
 </template>
 
 <script>
+export default {
+    name: 'IncricaoFormValidation',
+    props:[],
+    data: () => ({
+        postado: false,
+        form: {
+            name: '',
+            email: '',
+            tipoClasse: '',
+            observacao: ''
+        }
+    }),
+    computed: {
+        classes () {
+            // return this.$store.getters.allProducts   // Cenário recebendo via um metódo GET
+            return [
+                'Atleta',
+                'Organização',
+                'Colaborador'
+            ]
+        }
+    },
+    methods: {
+        resetForm() {
+            this.$set(this.form, 'name', '');
+            this.$set(this.form, 'email', '');
+            this.$set(this.form, 'classe', '');
+            this.$set(this.form, 'observacao', '');
+        },
+        addAtleta() {
+            // alert(JSON.stringify(this.form));
+            console.log(this.$store.state.atleta)
+            this.postado = true
+            this.$store.dispatch('addAtleta', this.form)
+            this.resetForm();
 
-	export default {
-		name: 'IncricaoFormValidation',
-		props:[],
-		data: () => ({
-			postado: false,
-			form: {
-				name: '',
-				email: '',
-				tipoClasse: '',
-				observacao: ''
-			},
-			classes: [
-				'Atleta',
-				'Organização',
-				'Colaborador'
-			],			
-		}),
-		methods: {
-			resetForm() {
-				this.$set(this.form, 'name', '');
-				this.$set(this.form, 'email', '');
-				this.$set(this.form, 'classe', '');
-				this.$set(this.form, 'observacao', '');
-			},
-			handleSubmit() {
-				// TODO: How to send this to Netlify?
-				this.postado = true;
-				alert(JSON.stringify(this.form));
-				this.resetForm();
-			},			
-		}
+            // chama as ações dentro da mutation, que manter o estado da aplicação
+            // this.$store.commit(ADD_ATLETA, this.form);
+        }
+    }
 
-	}
+}
 </script>
