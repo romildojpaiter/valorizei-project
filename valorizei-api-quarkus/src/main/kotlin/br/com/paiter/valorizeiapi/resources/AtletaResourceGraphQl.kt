@@ -2,7 +2,6 @@ package br.com.paiter.valorizeiapi.resources
 
 import br.com.paiter.valorizeiapi.models.Atleta
 import br.com.paiter.valorizeiapi.repositories.AtletaRepository
-import io.quarkus.mongodb.panache.PanacheQuery
 import org.bson.types.ObjectId
 import org.eclipse.microprofile.graphql.GraphQLApi
 import org.eclipse.microprofile.graphql.Mutation
@@ -28,7 +27,7 @@ class AtletaResourceGraphQl {
 
 
     @Mutation
-    fun createAtleta(alteta: Atleta?): Atleta? {
+    fun createAtleta(alteta: Atleta): Atleta {
         atletaRespository.persist(alteta)
         return alteta
     }
